@@ -1,0 +1,18 @@
+<form [formGroup]="rateForm" class="form" (ngSubmit)="submitForm()">
+  <mat-form-field>
+    <mat-label>Description:</mat-label>
+    <input matInput name="description" formControlName="description" />
+  </mat-form-field>
+
+  <app-stars-input formControlName="stars"></app-stars-input>
+
+  <button
+    mat-stroked-button
+    color="primary"
+    class="button-success"
+    type="submit"
+    [disabled]="!rateForm.touched"
+  >
+    Submit
+  </button>
+</form>
