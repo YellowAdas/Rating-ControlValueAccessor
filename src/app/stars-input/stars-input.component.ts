@@ -1,4 +1,10 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input,
+  OnInit,
+} from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
@@ -10,6 +16,7 @@ import {
   selector: 'app-stars-input',
   templateUrl: './stars-input.component.html',
   styleUrls: ['./stars-input.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -19,7 +26,9 @@ import {
   ],
 })
 export class StarsInputComponent implements OnInit, ControlValueAccessor {
-  stars = [1, 2, 3, 4, 5];
+  @Input() starc!: number;
+
+  stars: number[] = [];
   value: number = 0;
 
   constructor() {}
@@ -37,7 +46,10 @@ export class StarsInputComponent implements OnInit, ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.stars = Array.from({ length: this.starc }, (_, i) => i + 1);
+    console.log(this.starc);
+  }
 
   setValue(id: number) {
     this.value = id;
