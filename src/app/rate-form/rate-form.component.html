@@ -8,6 +8,10 @@
 
 <ng-container *ngIf="showForm">
   <form [formGroup]="rateForm" class="form" (ngSubmit)="submitForm()">
+    <mat-form-field>
+      <mat-label>Description:</mat-label>
+      <input matInput name="description" formControlName="description" />
+    </mat-form-field>
     <div>
       <input
         placeholder="Ilość gwiazdek"
@@ -15,14 +19,12 @@
         formControlName="stars"
       />
     </div>
-    <mat-form-field>
-      <mat-label>Description:</mat-label>
-      <input matInput name="description" formControlName="description" />
-    </mat-form-field>
-
     <!-- Do przeanalizowania -->
 
-    <app-stars-input [starc]="rateForm.value.stars"></app-stars-input>
+    <app-stars-input
+      formControlName="stars"
+      [starc]="rateForm.value.stars"
+    ></app-stars-input>
 
     <!-- <app-stars-input
       [starc]="starCount"
