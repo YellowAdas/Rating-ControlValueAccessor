@@ -8,9 +8,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class RateFormComponent {
   rateForm!: FormGroup;
-  public starCount = 5;
+  // public starCount = 5;
   constructor(private fb: FormBuilder) {}
-  showForm = false;
+  showForm = true;
 
   ngOnInit() {
     this.rateForm = this.fb.group({

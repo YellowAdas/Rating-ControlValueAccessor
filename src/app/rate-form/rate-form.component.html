@@ -1,22 +1,33 @@
-<mat-form-field
+<!-- <mat-form-field
   ><input
     matInput
     placeholder="Jaka stala gwiazdek?"
     [(ngModel)]="starCount"
   /><mat-icon matSuffix (click)="toggleForm()">done</mat-icon></mat-form-field
->
+> -->
 
 <ng-container *ngIf="showForm">
   <form [formGroup]="rateForm" class="form" (ngSubmit)="submitForm()">
+    <div>
+      <input
+        placeholder="Ilość gwiazdek"
+        type="number"
+        formControlName="stars"
+      />
+    </div>
     <mat-form-field>
       <mat-label>Description:</mat-label>
       <input matInput name="description" formControlName="description" />
     </mat-form-field>
 
-    <app-stars-input
+    <!-- Do przeanalizowania -->
+
+    <app-stars-input [starc]="rateForm.value.stars"></app-stars-input>
+
+    <!-- <app-stars-input
       [starc]="starCount"
       formControlName="stars"
-    ></app-stars-input>
+    ></app-stars-input> -->
 
     <button
       mat-stroked-button

@@ -3,12 +3,9 @@ import {
   Component,
   forwardRef,
   Input,
-  OnInit,
 } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormControl,
-  FormGroup,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
@@ -25,7 +22,7 @@ import {
     },
   ],
 })
-export class StarsInputComponent implements OnInit, ControlValueAccessor {
+export class StarsInputComponent implements ControlValueAccessor {
   @Input() starc = 5;
   value: number = 0;
 
@@ -42,10 +39,6 @@ export class StarsInputComponent implements OnInit, ControlValueAccessor {
   }
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
-  }
-
-  ngOnInit(): void {
-    console.log(this.starc);
   }
 
   setValue(id: number) {
