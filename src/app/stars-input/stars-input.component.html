@@ -1,5 +1,5 @@
 <small>Rate my work:</small>
-<div *ngFor="let i of stars">
+<div *ngFor="let i of starc | arrayFromNumber">
   <mat-icon (click)="setValue(i)">{{
     value < i ? "star_outline" : "star"
   }}</mat-icon>

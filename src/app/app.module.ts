@@ -11,9 +11,10 @@ import { AppComponent } from './app.component';
 import { RateFormComponent } from './rate-form/rate-form.component';
 import { StarsInputComponent } from './stars-input/stars-input.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ArrayFromNumberPipe } from './array-from-number.pipe';
 
 @NgModule({
-  declarations: [AppComponent, RateFormComponent, StarsInputComponent],
+  declarations: [AppComponent, RateFormComponent, StarsInputComponent, ArrayFromNumberPipe],
   imports: [
     BrowserModule,
     FormsModule,

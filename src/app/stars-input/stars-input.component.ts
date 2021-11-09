@@ -26,9 +26,7 @@ import {
   ],
 })
 export class StarsInputComponent implements OnInit, ControlValueAccessor {
-  @Input() starc!: number;
-
-  stars: number[] = [];
+  @Input() starc = 5;
   value: number = 0;
 
   constructor() {}
@@ -47,13 +45,17 @@ export class StarsInputComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
-    this.stars = Array.from({ length: this.starc }, (_, i) => i + 1);
     console.log(this.starc);
   }
 
   setValue(id: number) {
-    this.value = id;
-    this.onChange(this.value);
+    // zerowanie stanu gwiazdek po 2-krotnym kliknieciu
+    if (this.value === id) {
+      this.value = 0;
+    } else {
+      this.value = id;
+      this.onChange(this.value);
+    }
     this.onTouched();
   }
 }
