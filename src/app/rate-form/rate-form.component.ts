@@ -15,7 +15,8 @@ export class RateFormComponent {
   ngOnInit() {
     this.rateForm = this.fb.group({
       description: new FormControl(),
-      stars: new FormControl(),
+      stars: new FormControl(3),
+      starC: new FormControl(5),
     });
   }
 
